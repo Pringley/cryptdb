@@ -32,3 +32,47 @@ Implementation notes:
 	k_i = f_k'(L_i)
 
 	Using qca-qt5 from AUR and Qt 5
+
+## Build using Vagrant
+
+Follow these steps to build the code using
+[Vagrant](http://www.vagrantup.com/), a portable development environment
+creator.
+
+1.  Install [Vagrant](http://www.vagrantup.com/downloads.html) and
+    [VirtualBox](https://www.virtualbox.org/wiki/Downloads) on your computer.
+
+2.  Clone this repository.
+
+        git clone https://github.com/Pringley/cryptdb.git
+
+    If you don't have Git installed, you can instead [download a
+    zip](https://github.com/Pringley/cryptdb/archive/master.zip) and unpack it
+    into a folder named `cryptdb/`.
+
+3.  Initialize the virtual machine using Vagrant.
+
+        cd cryptdb
+        vagrant up
+
+    This will set up the virtual machine and automatically install
+    dependencies.
+
+4.  SSH into the virtual machine.
+
+        vagrant ssh
+
+    This will connect your terminal to the Ubuntu 14.04 VM. This folder is
+    shared in the virtual machine as `vagrant/.
+
+5.  Build the project.
+
+        cd /vagrant
+        qmake Project1.pro
+        make
+
+6.  Run the project!
+
+        ./Project1
+
+    (The command might take a while to get started as it loads the database.)
